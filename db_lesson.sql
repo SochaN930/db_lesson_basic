@@ -1,10 +1,10 @@
 
 ---Q1---
 create table departments(
-department_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(20) NOT NULL,
-created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	department_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(20) NOT NULL,
+	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 );
 
 
@@ -60,7 +60,7 @@ select name, age from people where gender = 1 order by desc;
 select name from people where (age >= 20 and age < 30 and gender = 2) or (age >= 40 and age < 50 and gender = 1);
 
 ---Q8---
-select people.name, people.age from people inner join departments on people.department_id = departments.department_id where departments.name = '営業' order by people.age asc;
+select people.* from people inner join departments on people.department_id = departments.department_id where departments.name = '営業' order by people.age asc;
 
 ---Q9---
 select avg(people.age) as average_age from people where department_id = 2 and gender = 2;
